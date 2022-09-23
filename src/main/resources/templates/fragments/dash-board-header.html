@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="dashBoard">
+    <header class="py-2 bg-primary text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h1><i class="fas fa-cogs"></i> DashBoard</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="py-5 mb-4 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="#" class="btn btn-block btn-primary" data-toggle="modal" data-target="#categoryModal"> <i
+                            class="fas fa-plus mr-2"></i> Category</a>
+                </div>
+                <div class="col-md-4">
+                    <a href="#" class="btn btn-block btn-success"> <i class="fas fa-plus mr-2"></i> Author</a>
+                </div>
+                <div class="col-md-4">
+                    <a href="#" class="btn btn-block btn-warning"> <i class="fas fa-plus mr-2"></i> User</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Category Model-->
+    <section>
+        <div class="modal fade" id="categoryModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary text-white">
+                        <h5 class="modal-title">Add Category</h5>
+                        <button class="close" data-dimiss="modal"><span>&times</span></button>
+                    </div>
+                    <div class="modal-body ">
+                        <form action="#" th:action="@{/save-category}" th:object="${category}" method="post">
+                            <div class="form-group">
+                                <label for="name">Category Name</label>
+                                <input type="text" id="name" class="form-control" th:field="*{categoryName}">
+                            </div>
+                            <button type="submit" class="btn btn-outline-primary btn-block">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</body>
+</html>
